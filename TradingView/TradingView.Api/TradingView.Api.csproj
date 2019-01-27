@@ -137,8 +137,14 @@
     <Compile Include="Migrations\201901271320510_Initial.Designer.cs">
       <DependentUpon>201901271320510_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901271901044_AddQuoteAndSymbolModels.cs" />
+    <Compile Include="Migrations\201901271901044_AddQuoteAndSymbolModels.Designer.cs">
+      <DependentUpon>201901271901044_AddQuoteAndSymbolModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Quote.cs" />
+    <Compile Include="Models\Symbol.cs" />
     <Compile Include="Models\UserRegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
@@ -160,6 +166,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901271320510_Initial.resx">
       <DependentUpon>201901271320510_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901271901044_AddQuoteAndSymbolModels.resx">
+      <DependentUpon>201901271901044_AddQuoteAndSymbolModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

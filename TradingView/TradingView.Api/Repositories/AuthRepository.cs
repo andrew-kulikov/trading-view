@@ -41,7 +41,6 @@ namespace TradingView.Api.Repositories
 		{
 			_ctx.Dispose();
 			_userManager.Dispose();
-
 		}
 	}
 }
