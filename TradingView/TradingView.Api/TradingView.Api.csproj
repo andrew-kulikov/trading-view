@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TradingView.DAL\TradingView.DAL.csproj">
-      <Project>{be80b313-22e0-4b99-ad3d-03a087264838}</Project>
+      <Project>{7874a190-abcb-49f7-a8c7-ee756f36e1a7}</Project>
       <Name>TradingView.DAL</Name>
     </ProjectReference>
   </ItemGroup>

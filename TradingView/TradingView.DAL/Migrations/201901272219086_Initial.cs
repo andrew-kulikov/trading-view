@@ -8,6 +8,32 @@ namespace TradingView.DAL.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Quotes",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        SymbolId = c.Int(nullable: false),
+                        Timestamp = c.Long(nullable: false),
+                        Open = c.Single(nullable: false),
+                        High = c.Single(nullable: false),
+                        Low = c.Single(nullable: false),
+                        Close = c.Single(nullable: false),
+                        Volume = c.Single(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Symbols", t => t.SymbolId, cascadeDelete: true)
+                .Index(t => t.SymbolId);
+            
+            CreateTable(
+                "dbo.Symbols",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 20),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -83,17 +109,21 @@ namespace TradingView.DAL.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Quotes", "SymbolId", "dbo.Symbols");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Quotes", new[] { "SymbolId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Symbols");
+            DropTable("dbo.Quotes");
         }
     }
 }

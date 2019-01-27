@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE80B313-22E0-4B99-AD3D-03A087264838}</ProjectGuid>
+    <ProjectGuid>{7874A190-ABCB-49F7-A8C7-EE756F36E1A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>TradingView.DAL</RootNamespace>
     <AssemblyName>TradingView.DAL</AssemblyName>
@@ -40,6 +40,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\201901272219086_Initial.cs" />
+    <Compile Include="Migrations\201901272219086_Initial.Designer.cs">
+      <DependentUpon>201901272219086_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Quote.cs" />
+    <Compile Include="Models\Symbol.cs" />
+    <Compile Include="Models\UserRegisterModel.cs" />
+    <Compile Include="Repositories\AuthRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -52,24 +65,12 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="Migrations\201901272144292_Initial.cs" />
-    <Compile Include="Migrations\201901272144292_Initial.Designer.cs">
-      <DependentUpon>201901272144292_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Quote.cs" />
-    <Compile Include="Models\Symbol.cs" />
-    <Compile Include="Models\UserRegisterModel.cs" />
-    <Compile Include="Repositories\AuthRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901272144292_Initial.resx">
-      <DependentUpon>201901272144292_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901272219086_Initial.resx">
+      <DependentUpon>201901272219086_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
