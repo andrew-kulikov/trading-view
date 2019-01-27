@@ -8,13 +8,13 @@ namespace TradingView.Api.Repositories
 {
 	public class AuthRepository : IDisposable
 	{
-		private AuthContext _ctx;
+		private ApplicationDbContext _ctx;
 
 		private UserManager<IdentityUser> _userManager;
 
 		public AuthRepository()
 		{
-			_ctx = new AuthContext();
+			_ctx = new ApplicationDbContext();
 			_userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
 		}
 

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://raw.githubusercontent.com/SoftFx/TTWebClient-CSharp/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/SoftFx/TTWebClient-CSharp/</projectUrl>
+    <iconUrl>https://www.soft-fx.com/favicon2.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>First public release</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>TickTrader</tags>
+  </metadata>
+</package>
