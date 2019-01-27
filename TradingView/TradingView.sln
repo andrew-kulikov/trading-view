@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingView.Api", "TradingView.Api\TradingView.Api.csproj", "{24EB2BB3-AB0E-49A8-8646-AE63C0926676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingView.Api.Tests", "TradingView.Api.Tests\TradingView.Api.Tests.csproj", "{67EDAC84-AFC5-4A53-ADC8-557832AFCB67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24EB2BB3-AB0E-49A8-8646-AE63C0926676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24EB2BB3-AB0E-49A8-8646-AE63C0926676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24EB2BB3-AB0E-49A8-8646-AE63C0926676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24EB2BB3-AB0E-49A8-8646-AE63C0926676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EDAC84-AFC5-4A53-ADC8-557832AFCB67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EDAC84-AFC5-4A53-ADC8-557832AFCB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EDAC84-AFC5-4A53-ADC8-557832AFCB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EDAC84-AFC5-4A53-ADC8-557832AFCB67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07FCBC87-0961-4937-86DE-CE376F8BDF6C}
+	EndGlobalSection
+EndGlobal
