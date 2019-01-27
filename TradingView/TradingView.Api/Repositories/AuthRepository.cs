@@ -18,14 +18,14 @@ namespace TradingView.Api.Repositories
 			_userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
 		}
 
-		public async Task<IdentityResult> RegisterUser(UserModel userModel)
+		public async Task<IdentityResult> RegisterUser(UserRegisterModel userRegisterModel)
 		{
 			IdentityUser user = new IdentityUser
 			{
-				UserName = userModel.UserName
+				UserName = userRegisterModel.UserName
 			};
 
-			var result = await _userManager.CreateAsync(user, userModel.Password);
+			var result = await _userManager.CreateAsync(user, userRegisterModel.Password);
 
 			return result;
 		}

@@ -19,14 +19,14 @@ namespace TradingView.Api.Controllers
 		// POST api/Account/Register
 		[AllowAnonymous]
 		[Route("Register")]
-		public async Task<IHttpActionResult> Register(UserModel userModel)
+		public async Task<IHttpActionResult> Register(UserRegisterModel userRegisterModel)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			IdentityResult result = await _repo.RegisterUser(userModel);
+			IdentityResult result = await _repo.RegisterUser(userRegisterModel);
 
 			IHttpActionResult errorResult = GetErrorResult(result);
 

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TradingView.Api.Models
 {
-	public class UserModel
+	public class UserRegisterModel
 	{
 		[Required]
 		[Display(Name = "User name")]
