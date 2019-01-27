@@ -129,7 +129,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AuthContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

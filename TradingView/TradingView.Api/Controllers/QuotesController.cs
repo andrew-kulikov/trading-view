@@ -2,14 +2,13 @@
 
 namespace TradingView.Api.Controllers
 {
-	[RoutePrefix("api/Orders")]
-	public class OrdersController : ApiController
+	public class QuotesController : ApiController
 	{
 		[Authorize]
-		[Route("")]
+		[Route("api/quotes")]
 		public IHttpActionResult Get()
 		{
-			return Ok();
+			return Ok("Quotes");
 		}
 	}
 
