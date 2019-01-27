@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TradingView.Api.Models
+namespace TradingView.DAL.Models
 {
 	public class Symbol
 	{

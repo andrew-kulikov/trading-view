@@ -1,4 +1,4 @@
-namespace TradingView.Api.Migrations
+namespace TradingView.DAL.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

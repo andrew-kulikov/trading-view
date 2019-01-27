@@ -1,4 +1,4 @@
-﻿namespace TradingView.Api.Models
+﻿namespace TradingView.DAL.Models
 {
 	public class Quote
 	{

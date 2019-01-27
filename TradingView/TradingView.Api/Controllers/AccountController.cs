@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
-using TradingView.Api.Models;
-using TradingView.Api.Repositories;
+using TradingView.DAL.Models;
+using TradingView.DAL.Repositories;
 
 namespace TradingView.Api.Controllers
 {

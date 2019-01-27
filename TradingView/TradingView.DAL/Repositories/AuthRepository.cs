@@ -2,9 +2,9 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Threading.Tasks;
-using TradingView.Api.Models;
+using TradingView.DAL.Models;
 
-namespace TradingView.Api.Repositories
+namespace TradingView.DAL.Repositories
 {
 	public class AuthRepository : IDisposable
 	{

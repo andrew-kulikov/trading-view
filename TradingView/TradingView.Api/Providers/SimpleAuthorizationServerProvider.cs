@@ -2,7 +2,7 @@
 using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using TradingView.Api.Repositories;
+using TradingView.DAL.Repositories;
 
 namespace TradingView.Api.Providers
 {
