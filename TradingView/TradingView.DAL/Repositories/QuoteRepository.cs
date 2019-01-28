@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoreLinq;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using TradingView.DAL.Models;
@@ -33,7 +34,8 @@ namespace TradingView.DAL.Repositories
 				.Where(q => q.Symbol.Name == symbol)
 				.Where(q =>
 					q.Timestamp / 1000 >= from &&
-					q.Timestamp / 1000 <= to);
+					q.Timestamp / 1000 <= to)
+				.OrderBy(q => q.Timestamp);
 		}
 
 		public void Dispose()

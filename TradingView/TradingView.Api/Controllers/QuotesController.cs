@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using MoreLinq;
+using Newtonsoft.Json;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
-using MoreLinq;
 using TradingView.DAL.Repositories;
 using TradingView.Utils.Helpers;
 
@@ -17,7 +17,7 @@ namespace TradingView.Api.Controllers
 		{
 			return Ok(JsonConvert.SerializeObject(new
 			{
-				supported_resolutions = new[] { "1", "5", "15", "30", "60", "1D", "1W", "1M" },
+				supported_resolutions = new[] { "1D" },
 				supports_group_request = false,
 				supports_marks = false,
 				supports_search = true,
@@ -62,15 +62,15 @@ namespace TradingView.Api.Controllers
 
 				return Ok(JsonConvert.SerializeObject(new
 				{
-					description = "Api test",
+					description = symbolModel.Name,
 					name = symbolModel.Name,
 					minmov = 1,
 					minmov2 = 0,
-					has_intraday =  false,
+					has_intraday = false,
 					has_no_volume = false,
 					pointvalue = 1,
 					pricescale = 100,
-					supported_pesolutions = new[] { "D", "2D", "3D", "W", "3W", "M", "6M" },
+					supported_pesolutions = new[] { "D" },
 					ticker = symbolModel.Name
 				}));
 			}
@@ -84,8 +84,6 @@ namespace TradingView.Api.Controllers
 			{
 				var quotes = quoteRepository
 					.GetSymbolRange(symbol, from, to)
-					.OrderBy(q => q.Timestamp)
-					.DistinctBy(q => q.Timestamp)
 					.ToList();
 
 				if (quotes.Count == 0)

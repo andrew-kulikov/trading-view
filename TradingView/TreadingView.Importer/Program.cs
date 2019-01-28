@@ -13,10 +13,16 @@ namespace TreadingView.Importer
 		private const int BatchSize = 300;
 		private static void Main(string[] args)
 		{
-			var webApiAddress = "https://ttdemowebapi.soft-fx.com:8443";
-			var webApiId = "1de621ca-e686-4ee2-92a5-45c87b4b3fe5";
-			var webApiKey = "czNhCcnK6ydePCHZ";
-			var webApiSecret = "J6Jxc2xPr8JyNpWtyEaCPYpkpJpsSQ38xb9AZNxBAGdtQrNDhQwf9mkWQygCKd6K";
+
+			if (args.Length != 4)
+			{
+				Console.WriteLine("Usage: TreadingView.Importer.exe WebApiAddress WebApiId WebApiKey WebApiSecret");
+				return;
+			}
+			var webApiAddress = args[0];
+			var webApiId = args[1];
+			var webApiKey = args[2];
+			var webApiSecret = args[3];
 
 			TickTraderWebClient.IgnoreServerCertificate();
 			var client = new TickTraderWebClient(webApiAddress, webApiId, webApiKey, webApiSecret);
@@ -26,7 +32,7 @@ namespace TreadingView.Importer
 			//SetupSymbols(client);
 
 			// Uncomment to get last (BatchSize) bars from Web API for each symbol
-			SetupQuotes(client);
+			// SetupQuotes(client);
 		}
 
 		public static void SetupQuotes(TickTraderWebClient client)
@@ -43,7 +49,7 @@ namespace TreadingView.Importer
 					{
 						var periodicities = client.GetQuoteSymbolPeriodicities(symbol.Name);
 						var barInfo = client.GetBarsInfo(symbol.Name, periodicities[0]);
-						var bars = client.GetBars(symbol.Name, periodicities[0], 1538524800000, BatchSize);
+						var bars = client.GetBars(symbol.Name, periodicities[0], barInfo.AvailableTo, BatchSize);
 						foreach (var bar in bars.Bars)
 						{
 							quoteRepository.AddQuote(new Quote
