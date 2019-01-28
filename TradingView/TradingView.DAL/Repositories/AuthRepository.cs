@@ -8,9 +8,9 @@ namespace TradingView.DAL.Repositories
 {
 	public class AuthRepository : IDisposable
 	{
-		private ApplicationDbContext _ctx;
+		private readonly ApplicationDbContext _ctx;
 
-		private UserManager<IdentityUser> _userManager;
+		private readonly UserManager<IdentityUser> _userManager;
 
 		public AuthRepository()
 		{
@@ -20,7 +20,7 @@ namespace TradingView.DAL.Repositories
 
 		public async Task<IdentityResult> RegisterUser(UserRegisterModel userRegisterModel)
 		{
-			IdentityUser user = new IdentityUser
+			var user = new IdentityUser
 			{
 				UserName = userRegisterModel.UserName
 			};

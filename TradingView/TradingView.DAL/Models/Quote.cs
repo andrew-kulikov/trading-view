@@ -1,8 +1,11 @@
-﻿namespace TradingView.DAL.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TradingView.DAL.Models
 {
 	public class Quote
 	{
-		public string Id { get; set; }
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { get; set; }
 
 		public Symbol Symbol { get; set; }
 		public int SymbolId { get; set; }

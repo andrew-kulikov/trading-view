@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using TradingView.DAL.Models;
 
@@ -13,6 +14,15 @@ namespace TradingView.DAL
 			: base("ApplicationDbContext")
 		{
 
+		}
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Quote>()
+				.HasKey(q => q.Id)
+				.Property(q => q.Id)
+				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+			base.OnModelCreating(modelBuilder);
 		}
 	}
 }

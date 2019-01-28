@@ -11,7 +11,7 @@ namespace TradingView.DAL.Migrations
                 "dbo.Quotes",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
                         SymbolId = c.Int(nullable: false),
                         Timestamp = c.Long(nullable: false),
                         Open = c.Single(nullable: false),
@@ -31,7 +31,8 @@ namespace TradingView.DAL.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 20),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -116,6 +117,7 @@ namespace TradingView.DAL.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Symbols", new[] { "Name" });
             DropIndex("dbo.Quotes", new[] { "SymbolId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
