@@ -21,7 +21,11 @@ namespace TreadingView.Importer
 			TickTraderWebClient.IgnoreServerCertificate();
 			var client = new TickTraderWebClient(webApiAddress, webApiId, webApiKey, webApiSecret);
 
+			// Uncomment to get symbols from Tick Trader Web API, Should be called 
+			// before SetupQuotes method
 			//SetupSymbols(client);
+
+			// Uncomment to get last (BatchSize) bars from Web API for each symbol
 			//SetupQuotes(client);
 		}
 
@@ -53,8 +57,6 @@ namespace TreadingView.Importer
 								Volume = bar.Open
 							});
 						}
-
-						Console.WriteLine(barInfo.AvailableTo);
 					}
 					catch (HttpRequestException e)
 					{

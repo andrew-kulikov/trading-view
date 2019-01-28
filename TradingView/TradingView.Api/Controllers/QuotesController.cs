@@ -1,5 +1,8 @@
-﻿using System.Web.Http;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Http;
+using TradingView.DAL.Repositories;
 
 namespace TradingView.Api.Controllers
 {
@@ -24,48 +27,23 @@ namespace TradingView.Api.Controllers
 		[HttpGet]
 		public IHttpActionResult FindSymbols(
 			[FromUri] string query = null, [FromUri] string type = null,
-			[FromUri] string exchange = null, [FromUri] string limit = null)
+			[FromUri] string exchange = null, [FromUri] int? limit = null)
 		{
-			return Json(new[]
+			using (var symbolRepository = new SymbolRepository())
 			{
-				new Symbol
-				{
-					symbol = "A",
-					full_name = "A",
-					description = "sdf",
-					exchange = "sdfsdf",
-					type = "kek"
+				var foundSymbols = symbolRepository
+					.FindByName(query)
+					.Take(limit ?? 30)
+					.ToList();
 
-				},
-				new Symbol
+				if (foundSymbols.Count == 0)
 				{
-					symbol = "B",
-					full_name = "B",
-					description = "sdf",
-					exchange = "sdfsdf",
-					type = "kek"
-				},
-				new Symbol
-				{
-					symbol = "C",
-					full_name = "C",
-					description = "sdf",
-					exchange = "sdfsdf",
-					type = "kek"
-				},
-			});
+					return NotFound();
+				}
+
+				return Ok(foundSymbols.Select(s => new { symbol = s.Name, full_name = s.Name }));
+			}
 		}
-
-
-	}
-
-	internal class Symbol
-	{
-		public string symbol { get; set; }
-		public string description { get; set; }
-		public string exchange { get; set; }
-		public string full_name { get; set; }
-		public string type { get; set; }
 	}
 
 }
