@@ -23,7 +23,8 @@ namespace TradingView.DAL.Repositories
 
 		public IQueryable<Symbol> GetAll() => _context.Symbols;
 
-		public IQueryable<Symbol> FindByName(string pattern) => _context.Symbols.Where(s => s.Name.ToLower().Contains(pattern));
+		public IQueryable<Symbol> FindByName(string pattern) => 
+			_context.Symbols.Where(s => s.Name.ToLower().Contains(pattern.ToLower()));
 
 
 		public void Dispose()

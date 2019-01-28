@@ -82,5 +82,11 @@
       <DependentUpon>201901280029461_AnotherOne.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TradingView.Utils\TradingView.Utils.csproj">
+      <Project>{8608d812-dd23-41dd-b6bf-4132f9367ecf}</Project>
+      <Name>TradingView.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

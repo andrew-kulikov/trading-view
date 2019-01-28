@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreadingView.Importer", "Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingView.DAL", "TradingView.DAL\TradingView.DAL.csproj", "{7874A190-ABCB-49F7-A8C7-EE756F36E1A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingView.Utils", "TradingView.Utils\TradingView.Utils.csproj", "{8608D812-DD23-41DD-B6BF-4132F9367ECF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7874A190-ABCB-49F7-A8C7-EE756F36E1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7874A190-ABCB-49F7-A8C7-EE756F36E1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7874A190-ABCB-49F7-A8C7-EE756F36E1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8608D812-DD23-41DD-B6BF-4132F9367ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8608D812-DD23-41DD-B6BF-4132F9367ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8608D812-DD23-41DD-B6BF-4132F9367ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8608D812-DD23-41DD-B6BF-4132F9367ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

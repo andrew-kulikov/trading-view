@@ -10,7 +10,7 @@ namespace TreadingView.Importer
 {
 	internal class Program
 	{
-		private const int BatchSize = 100;
+		private const int BatchSize = 300;
 		private static void Main(string[] args)
 		{
 			var webApiAddress = "https://ttdemowebapi.soft-fx.com:8443";
@@ -26,7 +26,7 @@ namespace TreadingView.Importer
 			//SetupSymbols(client);
 
 			// Uncomment to get last (BatchSize) bars from Web API for each symbol
-			//SetupQuotes(client);
+			SetupQuotes(client);
 		}
 
 		public static void SetupQuotes(TickTraderWebClient client)
@@ -43,7 +43,7 @@ namespace TreadingView.Importer
 					{
 						var periodicities = client.GetQuoteSymbolPeriodicities(symbol.Name);
 						var barInfo = client.GetBarsInfo(symbol.Name, periodicities[0]);
-						var bars = client.GetBars(symbol.Name, periodicities[0], barInfo.AvailableTo, BatchSize);
+						var bars = client.GetBars(symbol.Name, periodicities[0], 1538524800000, BatchSize);
 						foreach (var bar in bars.Bars)
 						{
 							quoteRepository.AddQuote(new Quote
